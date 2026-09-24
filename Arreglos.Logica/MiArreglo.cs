@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Arreglos.Logica
@@ -34,6 +35,47 @@ namespace Arreglos.Logica
                 _arreglo[i] = oRandom.Next(minimo, maximo + 1);
             }
             _tope = N;
+        }
+
+        //Metodo Ordenar (Burbuja)
+        public void Ordenar()
+        {
+            Ordenar(true);  //Orden ascendente por defecto
+        }
+
+        public void Ordenar(bool ascendente)
+        {
+            for (int i = 0; i < _tope - 1; i++)
+            {
+                for(int j= i+1; j < _tope; j++)
+                {
+                    if (ascendente)
+                    {
+                        if (_arreglo[i] > _arreglo[j])  //Orden ascendente
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);  //Cambiar su direcc. de memoria
+                        }
+                    }
+                    else {
+
+                        if (_arreglo[i] < _arreglo[j])  //Orden descendente
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);  
+                        }
+
+                    }
+
+                    
+                }
+            }
+        }
+
+        //Metodo Cambiar
+        public void Cambiar(ref int a, ref int b)  
+        {
+            int aux = a;
+            a = b;
+            b = aux;
         }
 
         //Metodo ToString
