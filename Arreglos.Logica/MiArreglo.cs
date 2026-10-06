@@ -90,6 +90,29 @@ namespace Arreglos.Logica
             _tope++;
         }
 
+        //Metodo Insertar
+        public void Insertar(int numero, int posicion)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo esta lleno");
+            }
+            if (posicion < 0)
+            {
+                posicion = 0;
+            }
+            if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+            for (int i = _tope; i > posicion; i--)
+            {
+                _arreglo[i] = _arreglo[i - 1];   //recorrer los elementos hacia la derecha
+            }
+            _arreglo[posicion] = numero;  //insertar el numero en la posicion
+            _tope++;
+        }
+
         //Metodo ToString
         public override string ToString()
         {
