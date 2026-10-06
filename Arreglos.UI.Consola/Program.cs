@@ -9,19 +9,25 @@ try
 {
     oMiArreglo.Agregar(7);
     oMiArreglo.Agregar(-2);
+    oMiArreglo.Agregar(8);
+
     Console.WriteLine(oMiArreglo);
 
+    Console.WriteLine("\nInsertar 500 en posicion 1");
     Console.ReadKey();  //al dar enter invocar insertar
-    oMiArreglo.Insertar(500,20);
+    oMiArreglo.Insertar(500,1);
+    Console.WriteLine(oMiArreglo);
+
+    Console.WriteLine("\nEliminar 500 en posicion 1");
+    Console.ReadKey();  //al dar enter invocar eliminar
+    oMiArreglo.Eliminar(1);
+    Console.WriteLine(oMiArreglo);
 
 }
 catch (Exception ex )
 {
     Console.WriteLine(ex.Message);  //mostrar mensaje de error
 }
-
-
-Console.WriteLine(oMiArreglo);
 
 //oMiArreglo.Llenar(1, 20);   //fisico
 
