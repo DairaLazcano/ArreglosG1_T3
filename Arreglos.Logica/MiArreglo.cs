@@ -27,6 +27,13 @@ namespace Arreglos.Logica
 
 
         //Metodos
+
+        public void Llenar()
+        {
+            Llenar(1,100);
+        }
+
+        //Llenar con parametros
         public void Llenar(int minimo, int maximo)
         {
             Random oRandom = new Random();
@@ -134,6 +141,30 @@ namespace Arreglos.Logica
             }
             _tope--;  //disminuir el tope
 
+        }
+
+        public MiArreglo ObtenerPares()
+        {
+            int contadorPares = 0;
+            for(int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] % 2 == 0)
+                {
+                    contadorPares++;
+                }
+            }
+            //pasar un arreglo de una clase a otra y no tenga problema el casteo
+            var arregloPares = new MiArreglo(contadorPares);
+
+            for (int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] % 2 == 0)
+                {
+                    arregloPares.Agregar(_arreglo[i]);
+                }
+            }
+
+            return arregloPares;
         }
 
         //Metodo ToString
