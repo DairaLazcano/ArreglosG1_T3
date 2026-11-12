@@ -43,16 +43,24 @@ Console.WriteLine("Arreglo ordenado descendente\n");
 oMiArreglo.Ordenar(false);
 Console.WriteLine(oMiArreglo);  */
 
-MiArreglo oMiArreglo = new MiArreglo(100);
+MiArreglo oMiArreglo = new MiArreglo(50000);
 
 try
 {
     Console.WriteLine("Arreglo\n");
-    oMiArreglo.Llenar();
+
+    var tiempo1 = DateTime.Now;         //Tiempo antes de que se llene
+    oMiArreglo.Llenar(1, 999999);
+
     Console.WriteLine(oMiArreglo);
+    var tiempo2 = DateTime.Now;         //Tiempo despues de que se llene
+
+    var restaTiempo = tiempo2 - tiempo1;
+
+    Console.WriteLine($"\nTiempo transcurrido: {restaTiempo.Minutes} minutos, {restaTiempo.Seconds} segundos, {restaTiempo.Milliseconds} milisegundos, {restaTiempo.Nanoseconds} nanosegundos");
     Console.ReadKey();
 
-    Console.WriteLine("\nPares\n");
+    /*Console.WriteLine("\nPares\n");
     var verPares = oMiArreglo.ObtenerPares();
     Console.WriteLine(verPares);
     Console.ReadKey();
@@ -60,16 +68,30 @@ try
     Console.WriteLine("\nPares ordenados\n");
     verPares.Ordenar(true);
     Console.WriteLine(verPares);
-    Console.ReadKey();
+    Console.ReadKey();*/
 
     Console.WriteLine("\nPrimos\n");
+    var tiempo3 = DateTime.Now;
     var verPrimos = oMiArreglo.ObtenerPrimos();
     Console.WriteLine(verPrimos);
+    var tiempo4 = DateTime.Now;
+
+    var restaTiempo2 = tiempo4 - tiempo3;
+    
+    Console.WriteLine($"\nTiempo transcurrido: {restaTiempo2.Minutes} minutos, {restaTiempo2.Seconds} segundos, {restaTiempo2.Milliseconds} milisegundos, {restaTiempo2.Nanoseconds} nanosegundos");
     Console.ReadKey();
 
+    //---------------------------------------------------------------------------------------
     Console.WriteLine("\nPrimos ordenados\n");
+    var tiempo5 = DateTime.Now;
     verPrimos.Ordenar(true);
     Console.WriteLine(verPrimos);
+    var tiempo6 = DateTime.Now;
+
+    var restaTiempo3 = tiempo6 - tiempo5;
+
+    Console.WriteLine($"\nTiempo transcurrido: {restaTiempo3.Minutes} minutos, {restaTiempo3.Seconds} segundos, {restaTiempo3.Milliseconds} milisegundos, {restaTiempo3.Nanoseconds} nanosegundos");
+
     Console.ReadKey();
 
 }
